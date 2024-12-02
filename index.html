@@ -2,48 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Icon" href="./assets/images/0871bc1f-2ba7-47f8-9c0d-71f0750e6d67.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="This is an Internship Project for Brainwave Matrix"/>
     <title>Todo App</title>
+    <link rel="apple-touch-icon" href="./assets/images/0871bc1f-2ba7-47f8-9c0d-71f0750e6d67.png" />
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div class="App">
+    <script src="./scripts.js"></script>
+    <div class="App light">
         <div class="todo">
             <nav class="Navbar">
-                <h1 class="h1">Todo App</h1>
+                <h1>TODO</h1>
+                <button id="themeToggle" aria-label="Switch Theme" onclick="toggleTheme()">
+                    <img id="themeIcon" src="./assets/images/icon-sun.svg" alt="Sun Icon">
+                </button>
             </nav>
             <div class="todoComponent">
-                <form id="todoForm" class="TodoForm">
-                    <div class="checkContainer">
-                        <span class="checkmark"></span>
+                <form class="TodoForm lightForm" onsubmit="handleSubmit(event)">
+                    <div class="checkContainer" onclick="handleSubmit(event)">
+                        <span class="checkmark hide"></span>
                     </div>
                     <input
-                        type="text"
-                        class="inputField"
-                        placeholder="Create a new todo..."
                         id="todoInput"
+                        class="inputField lightField"
+                        type="text"
+                        placeholder="Create a new todo..."
                     />
                 </form>
                 <div class="TodoMain">
-                    <div>
-                        <div class="TodoList" id="todoList">
-                            
-                        </div>
-                        <div class="manipulate">
+                    <div class="shadow lightShadow">
+                        <div class="TodoList" id="todoList"></div>
+                        <div class="manipulate lightForm">
                             <p id="itemsLeft">0 items left</p>
-                            <ul class="links">
-                                <li class="link" >All</li>
-                                <li class="link" >Active</li>
-                                <li class="link" >Completed</li>
+                            <ul class="links lighthover">
+                                <li class="link lightHover" onclick="setFilter('All')">All</li>
+                                <li class="link lightHover" onclick="setFilter('Active')">Active</li>
+                                <li class="link lightHover" onclick="setFilter('Complete')">Completed</li>
                             </ul>
-                            <p class="clear" >Clear Completed</p>
+                            <p class="clear" onclick="clearCompleted()">Clear Completed</p>
                         </div>
                     </div>
-                    
+                    <ul class="mobileLinks">
+                        <li class="link lightHover" onclick="setFilter('All')">All</li>
+                        <li class="link lightHover" onclick="setFilter('Active')">Active</li>
+                        <li class="link lightHover" onclick="setFilter('Complete')">Completed</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
